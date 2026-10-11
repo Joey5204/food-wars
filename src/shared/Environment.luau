@@ -11,8 +11,8 @@
 export type EnvironmentName = "local" | "development" | "production" | "unknown"
 
 local UNIVERSE_IDS = {
-	development = 0, -- TODO: paste the development universe ID
-	production = 0, -- TODO: paste the production universe ID
+	development = 115957608, -- PannPlayzRB's Place, approved development experience
+	production = 10769611414, -- Production (for players)
 }
 
 local Environment = {}

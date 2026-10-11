@@ -16,3 +16,7 @@ This is a startup check, not a background sync service. Do not repeatedly pull w
 ## Roblox workflow
 
 Treat repository scripts as the source of truth for Rojo-managed code. Keep development testing separate from the shared place when branches differ. Read default.project.json and rokit.toml before changing mappings or tool versions.
+
+## Testing preference
+
+The user handles testing. Do not run tests, playtests, verification scripts, formatting checks, type checks, or persistence probes unless the user explicitly asks to run them. Provide concise testing instructions with each change instead. Do not claim that untested changes passed checks. Do not automatically run setup tests at server startup. Reading files and checking the target experience before editing are still allowed.

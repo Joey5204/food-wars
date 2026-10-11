@@ -8,12 +8,12 @@ Food Wars uses two separate private Roblox experiences. Code is identical in bot
 
 ## IDs
 
-Fill these in after creating the experiences (step 2.01).
+Both identities were read from Studio. The owner approved development and requested setup of the open production place (step 2.01).
 
 | Environment | Experience name | Universe ID | Start place ID | Owner (user/group) |
 |-------------|-----------------|-------------|----------------|--------------------|
-| development | Food Wars Dev   | TODO        | TODO           | TODO               |
-| production  | Food Wars       | TODO        | TODO           | TODO               |
+| development | PannPlayzRB's Place | 115957608 | 2336388589 | User 95240076 |
+| production  | Production (for players) | 10769611414 | 98518974577739 | User 95240076 |
 
 Universe IDs are not secrets, but never commit API keys, cloud tokens or `.env` files.
 

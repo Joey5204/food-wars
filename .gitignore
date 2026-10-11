@@ -8,3 +8,5 @@ Packages/
 .cache/
 .DS_Store
 Thumbs.db
+build/
+.qa/

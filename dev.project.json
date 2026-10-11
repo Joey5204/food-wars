@@ -1,0 +1,19 @@
+{
+  "name": "FoodWarsDev",
+  "tree": {
+    "$className": "DataModel",
+    "ReplicatedStorage": { "Shared": { "$path": "src/shared" } },
+    "ServerScriptService": {
+      "Server": { "$path": "src/server" },
+      "DevTools": { "$path": "dev" }
+    },
+    "ServerStorage": { "DevTests": { "$path": "tests" } },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "Client": { "$path": "src/client" }
+      }
+    }
+  }
+}

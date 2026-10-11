@@ -1,0 +1,10 @@
+* text=auto
+*.luau text eol=lf
+*.lua text eol=lf
+*.sh text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.md text eol=lf
+*.docx binary
+*.rbxm binary
+*.rbxl binary

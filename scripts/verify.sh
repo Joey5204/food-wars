@@ -4,6 +4,7 @@
 # Requires the tools pinned in rokit.toml (run `rokit install` first).
 set -euo pipefail
 cd "$(dirname "$0")/.."
+export PATH="$HOME/.rokit/bin:$PATH"
 
 LUAU_LSP_VERSION="1.70.1" # keep in sync with rokit.toml
 TYPES_DIR=".cache"
@@ -21,16 +22,16 @@ if [ ! -f "$TYPES_FILE" ]; then
 fi
 
 echo "1/3 Generating sourcemap..."
-rojo sourcemap default.project.json -o sourcemap.json
+rojo sourcemap dev.project.json -o sourcemap.json
 
 echo "2/3 Checking formatting (StyLua)..."
-stylua --check src tests
+stylua --check src dev tests
 
 echo "3/3 Type checking (luau-lsp analyze)..."
 luau-lsp analyze \
 	--sourcemap=sourcemap.json \
 	--definitions="$TYPES_FILE" \
 	--base-luaurc=.luaurc \
-	src tests
+	src dev tests
 
 echo "OK: verification passed."
