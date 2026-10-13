@@ -45,15 +45,43 @@ Fill the Result column only after the check has actually been done. Do not mark 
 
 | # | Check | How | Result / date / initials |
 | --- | --- | --- | --- |
-| 1 | Both experiences are private | create.roblox.com -> each experience -> Settings; confirm not public | |
-| 2 | Production Studio API access is off | Production experience -> Game Settings -> Security; "Enable Studio Access to API Services" off | |
+| 1 | Both experiences are private | create.roblox.com -> each experience -> Settings; confirm not public | PASS — 2026-10-14 — Pann (owner confirmed row 1 finished). |
+| 2 | Production Studio API access is off | Production experience -> Game Settings -> Security; "Enable Studio Access to API Services" off | PASS — 2026-10-14 — Pann (owner confirmed row 2 finished). |
 | 3 | Production place has no DevTools or DevTests | Open production place; Explorer must have no `ServerScriptService.DevTools` and no `ServerStorage.DevTests`; save and publish the cleaned place | |
 | 4 | Fresh checkout verifies | Clone into an empty folder; follow `first-run.md`; `scripts/verify.ps1` prints `OK: verification passed.` | |
-| 5 | Dev sync and startup | `rojo serve dev.project.json`; connect Studio to the dev place; Play; Output shows server and client lines with `env development` | |
-| 6 | Two clients join | Studio Test -> Clients and Servers, 2 players, Start; no red errors; startup lines on the server and both clients | |
+| 5 | Dev sync and startup | `rojo serve dev.project.json`; connect Studio to the dev place; Play; Output shows server and client lines with `env development` | PASS — 2026-10-14 — Pann (owner-supplied Output); evidence below. |
+| 6 | Two clients join | Studio Test -> Clients and Servers, 2 players, Start; no red errors; startup lines on the server and both clients | PASS — 2026-10-14 — Pann (owner-supplied server and two client outputs; confirmed successful joins in response to the no-red-errors question). |
 | 7 | Development-only persistence | Dev DataStore probe passed per the notes above; confirm no writes occurred in production | |
 | 8 | Private dev publish tested in the Roblox application (2.08) | Publish; join from the application; F9 console shows `env development`; add a row to `release-log.md` | |
 | 9 | Asset owners named and a real place snapshot saved | See `assets.md` | |
 | 10 | Section 1 / Gate G1 documents exist | Decision log and game rules exist and are approved, as G2 depends on G1 | |
 
 Gate G2 sign-off: ______________________ date: __________
+
+## Owner-reported development startup — 14 October 2026
+
+Pann supplied the following Studio Output after the development startup instructions. Both server and client report the registered development universe/place and expected versions. The supplied excerpt contains no errors. Codex recorded this evidence without running tests.
+
+```text
+00:53:01.373 [FoodWars][Dev] Tools ready; setup tests run only on an approved tester's request — Server — DevMain:40
+00:53:01.373 [FoodWars][Server] env development (universe 115957608, place 2336388589) | code 0.1.0 | schema 1 | balance 1 — Server — ServerMain:7
+00:53:01.522 [FoodWars][Client] env development (universe 115957608, place 2336388589) | code 0.1.0 | schema 1 | balance 1 — Client — ClientMain:10
+```
+
+This excerpt supports closeout row 5 only. The separate two-client evidence below supports row 6. Neither startup test establishes a published application test or a persistence result. Gate G2 sign-off remains pending the other closeout rows.
+
+## Owner-reported two-client startup — 14 October 2026
+
+Pann supplied the server output and separately identified Client 1 and Client 2 output from the requested two-client test:
+
+```text
+Server:
+00:55:54.727 [FoodWars][Dev] Tools ready; setup tests run only on an approved tester's request — Server — DevMain:40
+00:55:54.727 [FoodWars][Server] env development (universe 115957608, place 2336388589) | code 0.1.0 | schema 1 | balance 1 — Server — ServerMain:7
+Client 1:
+00:56:37.859 [FoodWars][Client] env development (universe 115957608, place 2336388589) | code 0.1.0 | schema 1 | balance 1 — Client — ClientMain:10
+Client 2:
+00:57:39.818 [FoodWars][Client] env development (universe 115957608, place 2336388589) | code 0.1.0 | schema 1 | balance 1 — Client — ClientMain:10
+```
+
+All three startup messages report the expected development environment and versions. The supplied excerpts contain no errors. When asked whether both players joined successfully with no red errors in any window, Pann replied, "yes it joined successfully". Row 6 is recorded as PASS based on that owner confirmation and the supplied startup output. Codex recorded owner-supplied evidence without running tests. Gate G2 sign-off remains pending the other closeout rows.
