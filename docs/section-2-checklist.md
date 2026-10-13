@@ -38,3 +38,22 @@ On 12 October 2026:
 Remaining handover actions: commit/push when requested, save/publish the reviewed Studio changes, keep production Studio API access off, choose named asset owners, and save a real place snapshot. Fresh checkout, two-client, snapshot restoration, and application playtests are deferred to the team. Experience privacy and production API settings are unverified. Never mark Gate G2 complete solely because code exists.
 
 Gate G2 requires a clean checkout, successful startup with environment and version, development-only persistence, and two clients joining without bootstrap errors. Mock-only checks do not prove durable development saving.
+
+## Gate G2 closeout (owner actions)
+
+Fill the Result column only after the check has actually been done. Do not mark Gate G2 complete until every row passes.
+
+| # | Check | How | Result / date / initials |
+| --- | --- | --- | --- |
+| 1 | Both experiences are private | create.roblox.com -> each experience -> Settings; confirm not public | |
+| 2 | Production Studio API access is off | Production experience -> Game Settings -> Security; "Enable Studio Access to API Services" off | |
+| 3 | Production place has no DevTools or DevTests | Open production place; Explorer must have no `ServerScriptService.DevTools` and no `ServerStorage.DevTests`; save and publish the cleaned place | |
+| 4 | Fresh checkout verifies | Clone into an empty folder; follow `first-run.md`; `scripts/verify.ps1` prints `OK: verification passed.` | |
+| 5 | Dev sync and startup | `rojo serve dev.project.json`; connect Studio to the dev place; Play; Output shows server and client lines with `env development` | |
+| 6 | Two clients join | Studio Test -> Clients and Servers, 2 players, Start; no red errors; startup lines on the server and both clients | |
+| 7 | Development-only persistence | Dev DataStore probe passed per the notes above; confirm no writes occurred in production | |
+| 8 | Private dev publish tested in the Roblox application (2.08) | Publish; join from the application; F9 console shows `env development`; add a row to `release-log.md` | |
+| 9 | Asset owners named and a real place snapshot saved | See `assets.md` | |
+| 10 | Section 1 / Gate G1 documents exist | Decision log and game rules exist and are approved, as G2 depends on G1 | |
+
+Gate G2 sign-off: ______________________ date: __________
